@@ -230,3 +230,8 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   body::before { animation: none; }
 }
+
+/* game images link to the game's site */
+a.shot { display: block; line-height: 0; cursor: pointer; }
+a.shot img { display: block; }
+a.shot:hover img, a.shot:focus-visible img { outline: 2px solid var(--bone); outline-offset: 2px; }
