@@ -184,3 +184,8 @@ body::before {                        /* faint snow in the dark between releases
 @media (prefers-reduced-motion: reduce) {
   .mist, .lowland::after, .treeline::after { animation: none; }
 }
+
+/* heading before the list of games */
+.ours { text-align: center; margin: 0 auto 18px; padding-top: 30px; font: 600 22px/1 var(--display); letter-spacing: .5em; text-indent: .5em; text-transform: uppercase; color: #c9d3e6; text-shadow: 0 1px 8px rgba(0,0,0,.9); position: relative; z-index: 2; }
+.ours::before, .ours::after { content: ""; display: inline-block; vertical-align: middle; width: min(12vw, 120px); height: 1px; background: currentColor; opacity: .5; margin: 0 18px; }
+@media (max-width: 600px) { .ours { font-size: 19px; letter-spacing: .4em; padding-top: 22px; } .ours::before, .ours::after { width: 36px; margin: 0 10px; } }
