@@ -77,14 +77,16 @@ main { position: relative; }
 .game.gigawatt { --glow: 120, 96, 255; }
 .game.spike { --glow: 232, 206, 150; }
 .game.grid { --glow: 255, 170, 80; }
-#gigawatt { padding-top: clamp(26px, 3vw, 46px); }
+#gigawatt { padding-top: clamp(26px, 3vw, 46px); position: relative; }
+#gigawatt::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 0; width: min(1000px, 100%); height: clamp(150px, 14vw, 240px); transform: translateX(-50%); background: radial-gradient(50% 50% at 50% 55%, rgba(3, 6, 11, .6), transparent 75%); }
 .name {
   margin: 0; text-align: center;
   font: 600 clamp(48px, 5.6vw, 96px)/1 var(--display);
   letter-spacing: .14em; text-transform: uppercase; padding-left: .14em;
   text-shadow: 0 0 40px rgba(var(--glow), .45), 0 2px 3px #000;
 }
-.pitch { margin: 6px 0 clamp(16px, 1.8vw, 26px); text-align: center; font-size: clamp(18px, 1.35vw, 23px); color: var(--frost); text-shadow: 0 1px 3px #000; }
+.pitch { margin: 6px 0 clamp(16px, 1.8vw, 26px); text-align: center; font-size: clamp(18px, 1.35vw, 23px); color: var(--frost); text-shadow: 0 1px 3px #000, 0 0 12px #03060b, 0 0 24px #03060b; }
+#gigawatt .pitch { color: var(--bone); }
 a.shot { display: block; line-height: 0; }
 a.shot img { width: 100%; border-radius: 2px; }
 a.shot.main img {
