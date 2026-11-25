@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BLACKMETAL — burn the textbook</title>
-<meta name="description" content="blackmetal.tech makes games that replace textbooks: GIGAWATT, SPIKE and GRID.">
+<meta name="description" content="blackmetal.tech makes engineering games that replace textbooks: Gigawatt, Spike, Grid, Equilibrium, Circuits, and Loadpath in the pipeline.">
 <link rel="canonical" href="https://blackmetal.tech/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="theme-color" content="#03060b">
@@ -36,111 +36,155 @@
   <h1 class="logo"><svg role="img" aria-label="BLACKMETAL"><use href="#logo"/></svg><span class="sr">BLACKMETAL</span></h1>
   <p class="house">blackmetal.tech</p>
   <p class="headline">Burn the textbook</p>
-  <p class="liner">Interactive learning, so humans keep up in the age of AI.</p>
+  <p class="liner">An AI factory for engineering games.</p>
 </header>
 
 <main>
   <h2 class="ours">Our games</h2>
-  <article class="game gigawatt" id="gigawatt">
-    <h2 class="name">Gigawatt</h2>
-    <p class="pitch">Build and run an AI datacenter, 2020 to 2028.</p>
-    <a class="shot main" href="http://gigawatt.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the GIGAWATT site in a new tab"><img src="assets/shots/gigawatt-hall.webp" width="1600" height="856" alt="GIGAWATT: a datacenter hall with three clusters of racks"></a>
-    <div class="below">
-      <div class="facts">
+
+  <article class="act gigawatt tier-stable" id="gigawatt">
+    <div class="stage">
+      <img class="clip" src="assets/shots/gigawatt-hall.webp" width="1600" height="856" alt="GIGAWATT: a datacenter hall with three clusters of racks">
+      <div class="veil" aria-hidden="true"></div>
+      <header class="over">
+        <p class="tier">Stable</p>
+        <h2 class="name">Gigawatt</h2>
+        <p class="pitch">Build and run an AI datacenter, 2020 to 2028.</p>
+      </header>
+      <aside class="panel">
         <h3>What you learn</h3>
         <ul class="learn"><li>Power and cooling</li><li>Network fabrics</li><li>Training and inference</li><li>Datacenter finance</li></ul>
         <h3>Platforms</h3>
-        <p class="plat">Linux, Windows, macOS, Android (preview). Alpha 0.9.5.</p>
-        <p class="links"><a href="https://github.com/blackmetaltech/gigawatt/releases/latest">Download</a><a href="http://gigawatt.blackmetal.tech/">Site</a><a href="http://gigawatt.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/gigawatt">Source</a></p>
-      </div>
-      <div class="more">
-        <a class="shot" href="http://gigawatt.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the GIGAWATT site in a new tab"><img src="assets/shots/gigawatt-fabric.webp" width="800" height="428" loading="lazy" alt="The supercomputer builder and its fat-tree fabric"></a>
-        <a class="shot" href="http://gigawatt.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the GIGAWATT site in a new tab"><img src="assets/shots/gigawatt-racks.webp" width="800" height="428" loading="lazy" alt="Racks cabled into clusters"></a>
-      </div>
+        <p class="plat">Linux, Windows, macOS, Android (preview). Version 0.9.5.</p>
+        <p class="links"><a class="go" href="http://gigawatt.blackmetal.tech/" target="_blank" rel="noopener">Play</a><a href="https://github.com/blackmetaltech/gigawatt/releases/latest">Download</a><a href="http://gigawatt.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/gigawatt">Source</a></p>
+      </aside>
+    </div>
+    <div class="more">
+      <img src="assets/shots/gigawatt-fabric.webp" width="800" height="428" loading="lazy" alt="The supercomputer builder and its fat-tree fabric">
+      <img src="assets/shots/gigawatt-racks.webp" width="800" height="428" loading="lazy" alt="Racks cabled into clusters">
     </div>
   </article>
 
-  <div class="treeline" aria-hidden="true"></div>
+  <div class="treeline" aria-hidden="true" style="--glow:120,96,255"></div>
 
-  <article class="game spike" id="spike">
-    <h2 class="name">Spike</h2>
-    <p class="pitch">Wire spiking neurons. Watch them run a body.</p>
-    <a class="shot main" href="https://spike.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the SPIKE site in a new tab"><img src="assets/shots/spike-lamprey.webp" width="1280" height="720" loading="lazy" alt="SPIKE: a neural circuit driving a swimming lamprey, with spike raster and voltage traces"></a>
-    <div class="below">
-      <div class="facts">
+  <article class="act spike tier-stable" id="spike">
+    <div class="stage">
+      <video class="clip" data-src="assets/clips/spike-clip.mp4" muted loop playsinline preload="none" poster="assets/shots/spike-clip.webp" width="1280" height="720" aria-label="SPIKE: a neural circuit driving a swimming lamprey, with its spike raster and voltage traces"></video>
+      <div class="veil" aria-hidden="true"></div>
+      <header class="over">
+        <p class="tier">Stable</p>
+        <h2 class="name">Spike</h2>
+        <p class="pitch">Wire spiking neurons. Watch them run a body.</p>
+      </header>
+      <aside class="panel">
         <h3>What you learn</h3>
         <ul class="learn"><li>How neurons fire</li><li>Reflexes and rhythms</li><li>Diagnosing lesions</li><li>Computational neuroscience</li></ul>
         <h3>Platforms</h3>
-        <p class="plat">Linux. Alpha 0.5.0.</p>
-        <p class="links"><a href="https://github.com/blackmetaltech/spikes/releases/latest">Download</a><a href="https://spike.blackmetal.tech/">Site</a><a href="https://spike.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/spikes">Source</a></p>
-      </div>
-      <div class="more">
-        <a class="shot" href="https://spike.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the SPIKE site in a new tab"><img src="assets/shots/spike-heart.webp" width="800" height="450" loading="lazy" alt="The heart-rate level"></a>
-        <a class="shot" href="https://spike.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the SPIKE site in a new tab"><img src="assets/shots/spike-campaign.webp" width="800" height="450" loading="lazy" alt="The campaign map"></a>
-      </div>
+        <p class="plat">Linux. Version 0.5.2.</p>
+        <p class="links"><a class="go" href="https://spike.blackmetal.tech/" target="_blank" rel="noopener">Play</a><a href="https://github.com/blackmetaltech/spikes/releases/latest">Download</a><a href="https://spike.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/spikes">Source</a></p>
+      </aside>
+    </div>
+    <div class="more">
+      <img src="assets/shots/spike-heart.webp" width="800" height="450" loading="lazy" alt="The heart-rate level">
+      <img src="assets/shots/spike-campaign.webp" width="800" height="450" loading="lazy" alt="The campaign map">
     </div>
   </article>
 
-  <div class="treeline" aria-hidden="true"></div>
+  <div class="treeline" aria-hidden="true" style="--glow:232,206,150"></div>
 
-  <article class="game grid" id="grid">
-    <h2 class="name">Grid</h2>
-    <p class="pitch">Build a power grid. Keep the lights on.</p>
-    <a class="shot main" href="https://grid.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the GRID site in a new tab"><img src="assets/shots/grid-island-lit.webp" width="1280" height="720" loading="lazy" alt="GRID: the first job at night, an island hamlet with its lamps on"></a>
-    <div class="below">
-      <div class="facts">
+  <article class="act grid tier-beta" id="grid">
+    <div class="stage">
+      <video class="clip" data-src="assets/clips/grid-clip.mp4" muted loop playsinline preload="none" poster="assets/shots/grid-clip.webp" width="1280" height="720" aria-label="GRID: lightning has taken the island's only feeder; the island goes dark beside the lit harbour"></video>
+      <div class="veil" aria-hidden="true"></div>
+      <header class="over">
+        <p class="tier">Beta</p>
+        <h2 class="name">Grid</h2>
+        <p class="pitch">Build a power grid. Keep the lights on.</p>
+      </header>
+      <aside class="panel">
         <h3>What you learn</h3>
         <ul class="learn"><li>Ohm's law to AC load flow</li><li>Voltage and harmonics</li><li>Frequency and protection</li><li>Dispatch and planning</li></ul>
         <h3>Platforms</h3>
-        <p class="plat">Linux, Windows (not yet tested on Windows), macOS (untested). Alpha 1.18.1: the island has a shape, chapter 2's map jobs are in 3D, and the finale starts in about 4 s.</p>
-        <p class="links"><a href="https://github.com/blackmetaltech/grid/releases/latest">Download</a><a href="https://grid.blackmetal.tech/">Site</a><a href="https://grid.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/grid">Source</a></p>
-      </div>
-      <div class="more">
-        <a class="shot" href="https://grid.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the GRID site in a new tab"><img src="assets/shots/grid-bay-3d.webp" width="800" height="450" loading="lazy" alt="The title: the island at dusk, a headland under the lighthouse, a jetty and homes with porches, waiting for the first lamp"></a>
-        <a class="shot" href="https://grid.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the GRID site in a new tab"><img src="assets/shots/grid-blackout-3d.webp" width="800" height="450" loading="lazy" alt="Lightning has taken the island's only feeder: the island is dark beside the lit harbour"></a>
-      </div>
+        <p class="plat">Linux. Windows and macOS builds are not hand-tested. Version 1.18.1.</p>
+        <p class="links"><a class="go" href="https://grid.blackmetal.tech/" target="_blank" rel="noopener">Play</a><a href="https://github.com/blackmetaltech/grid/releases/latest">Download</a><a href="https://grid.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/grid">Source</a></p>
+      </aside>
+    </div>
+    <div class="more">
+      <img src="assets/shots/grid-island-lit.webp" width="800" height="450" loading="lazy" alt="The first job at night, an island hamlet with its lamps on">
+      <img src="assets/shots/grid-bay-3d.webp" width="800" height="450" loading="lazy" alt="The title: the island at dusk, a headland under the lighthouse, a jetty and homes with porches, waiting for the first lamp">
     </div>
   </article>
 
-  <div class="treeline" aria-hidden="true"></div>
+  <div class="treeline" aria-hidden="true" style="--glow:255,170,80"></div>
 
-  <article class="game equilibrium" id="equilibrium">
-    <h2 class="name">Equilibrium</h2>
-    <p class="pitch">Design and run a chemical plant.</p>
-    <a class="shot main" href="https://equilibrium.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the EQUILIBRIUM site in a new tab"><img src="assets/shots/equilibrium-burner-wide.webp" width="1400" height="623" loading="lazy" alt="EQUILIBRIUM: a sulfur burner plant in the hall, the burner glowing on its saddles, the pipe rack and the stack behind"></a>
-    <div class="below">
-      <div class="facts">
+  <article class="act equilibrium tier-beta" id="equilibrium">
+    <div class="stage">
+      <video class="clip" data-src="assets/clips/equilibrium-clip.mp4" muted loop playsinline preload="none" poster="assets/shots/equilibrium-clip.webp" width="1280" height="720" aria-label="EQUILIBRIUM: a walk through the plant hall at night"></video>
+      <div class="veil" aria-hidden="true"></div>
+      <header class="over">
+        <p class="tier">Beta</p>
+        <h2 class="name">Equilibrium</h2>
+        <p class="pitch">Design and run a chemical plant.</p>
+      </header>
+      <aside class="panel">
         <h3>What you learn</h3>
         <ul class="learn"><li>Mass balances and equilibrium</li><li>Kinetics and catalysts</li><li>Recycle, purge and safety</li><li>Control and hydraulics</li></ul>
         <h3>Platforms</h3>
-        <p class="plat">Linux, Windows (not yet tested on Windows), macOS (untested). Alpha 0.13.0: a catalyst bed you can see into, and the calorimeter bench; the prologue and chapters 1-4 in 3D.</p>
-        <p class="links"><a href="https://github.com/blackmetaltech/equilibrium/releases/latest">Download</a><a href="https://equilibrium.blackmetal.tech/">Site</a><a href="https://equilibrium.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/equilibrium">Source</a></p>
-      </div>
-      <div class="more">
-        <a class="shot" href="https://equilibrium.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the EQUILIBRIUM site in a new tab"><img src="assets/shots/equilibrium-bed.webp" width="800" height="450" loading="lazy" alt="A packed catalyst bed seen through its window, glowing by temperature, five thermowell readings from 428 to 518 °C down the bed"></a>
-        <a class="shot" href="https://equilibrium.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the EQUILIBRIUM site in a new tab"><img src="assets/shots/equilibrium-lab.webp" width="800" height="450" loading="lazy" alt="The title over the private lab: the flask rig on its dais, the tank bay behind"></a>
-      </div>
+        <p class="plat">Linux. Windows and macOS builds are not hand-tested. Version 0.13.0.</p>
+        <p class="links"><a class="go" href="https://equilibrium.blackmetal.tech/" target="_blank" rel="noopener">Play</a><a href="https://github.com/blackmetaltech/equilibrium/releases/latest">Download</a><a href="https://equilibrium.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/equilibrium">Source</a></p>
+      </aside>
+    </div>
+    <div class="more">
+      <img src="assets/shots/equilibrium-burner-wide.webp" width="800" height="450" loading="lazy" alt="A sulfur burner plant in the hall, the burner glowing on its saddles, the pipe rack and the stack behind">
+      <img src="assets/shots/equilibrium-bed.webp" width="800" height="450" loading="lazy" alt="A packed catalyst bed seen through its window, glowing by temperature, five thermowell readings from 428 to 518 °C down the bed">
     </div>
   </article>
 
-  <div class="treeline" aria-hidden="true"></div>
+  <div class="treeline" aria-hidden="true" style="--glow:46,196,182"></div>
 
-  <article class="game circuits" id="circuits">
-    <h2 class="name">Circuits</h2>
-    <p class="pitch">Repair and build electronics on your own bench.</p>
-    <a class="shot main" href="https://circuits.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the CIRCUITS site in a new tab"><img src="assets/shots/circuits-failure.webp" width="1400" height="622" loading="lazy" alt="CIRCUITS: a fan driver on the workbench, the transistor burnt, the repair ticket explaining the turn-off spike"></a>
-    <div class="below">
-      <div class="facts">
+  <article class="act circuits tier-beta" id="circuits">
+    <div class="stage">
+      <video class="clip" data-src="assets/clips/circuits-clip.mp4" muted loop playsinline preload="none" poster="assets/shots/circuits-clip.webp" width="1280" height="720" aria-label="CIRCUITS: a repair ticket on the 3D workbench, a sensor circuit on the breadboard, the supply and the multimeter behind it"></video>
+      <div class="veil" aria-hidden="true"></div>
+      <header class="over">
+        <p class="tier">Beta</p>
+        <h2 class="name">Circuits</h2>
+        <p class="pitch">Repair and build electronics on your own bench.</p>
+      </header>
+      <aside class="panel">
         <h3>What you learn</h3>
         <ul class="learn"><li>Ohm's law and power</li><li>Dividers and bridges</li><li>Capacitors and time constants</li><li>Rectifiers and transistors</li></ul>
         <h3>Platforms</h3>
-        <p class="plat">Linux and Windows. Pre-alpha 0.6.0: all five chapters on the 3D repair bench, and a testbed of six devices to break.</p>
-        <p class="links"><a href="https://github.com/blackmetaltech/circuits/releases/latest">Download</a><a href="https://circuits.blackmetal.tech/">Site</a><a href="https://circuits.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/circuits">Source</a></p>
-      </div>
-      <div class="more">
-        <a class="shot" href="https://circuits.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the CIRCUITS site in a new tab"><img src="assets/shots/circuits-thermal.webp" width="800" height="450" loading="lazy" alt="The thermal camera on a hot regulator board: the heatsink and the load glow warm, a spare at room temperature stays purple"></a>
-        <a class="shot" href="https://circuits.blackmetal.tech/" target="_blank" rel="noopener" aria-label="Open the CIRCUITS site in a new tab"><img src="assets/shots/circuits-flash.webp" width="800" height="450" loading="lazy" alt="A flash timer fixed on the bench: the scope shows the capacitor charging curve inside its tolerance tube, the ticket stamped PASSED"></a>
-      </div>
+        <p class="plat">Linux and Windows. Version 0.6.0.</p>
+        <p class="links"><a class="go" href="https://circuits.blackmetal.tech/" target="_blank" rel="noopener">Play</a><a href="https://github.com/blackmetaltech/circuits/releases/latest">Download</a><a href="https://circuits.blackmetal.tech/wiki/">Wiki</a><a href="https://github.com/blackmetaltech/circuits">Source</a></p>
+      </aside>
+    </div>
+    <div class="more">
+      <img src="assets/shots/circuits-failure.webp" width="800" height="450" loading="lazy" alt="A fan driver on the workbench, the transistor burnt, the repair ticket explaining the turn-off spike">
+      <img src="assets/shots/circuits-thermal.webp" width="800" height="450" loading="lazy" alt="The thermal camera on a hot regulator board: the heatsink and the load glow warm, a spare at room temperature stays purple">
+    </div>
+  </article>
+
+  <div class="treeline" aria-hidden="true" style="--glow:242,163,58"></div>
+
+  <article class="act loadpath tier-alpha" id="loadpath">
+    <div class="stage">
+      <img class="clip" src="assets/shots/loadpath-hero.webp" width="1600" height="900" loading="lazy" alt="LOADPATH: a truss bridge over a town square, the load in each member written on it, a job card at the lower left">
+      <div class="veil" aria-hidden="true"></div>
+      <header class="over">
+        <p class="tier">Alpha</p>
+        <h2 class="name">Loadpath</h2>
+        <p class="pitch">Build structures that hold.</p>
+      </header>
+      <aside class="panel">
+        <h3>What you learn</h3>
+        <ul class="learn"><li>Forces and free bodies</li><li>Trusses</li><li>Beams and bending</li><li>Buckling</li></ul>
+        <h3>Status</h3>
+        <p class="plat">In development. Three chapters built, no public build yet.</p>
+      </aside>
+    </div>
+    <div class="more">
+      <img src="assets/shots/loadpath-arch.webp" width="800" height="450" loading="lazy" alt="A stone arch job: a basket of concrete blocks hanging from the arch, the invoice stamped PAID">
     </div>
   </article>
 
@@ -151,6 +195,22 @@
       <span class="what">and more</span></p>
   </section>
 </main>
+
+<script>
+(function () {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      var v = entry.target;
+      if (!entry.isIntersecting) return;
+      v.src = v.dataset.src;
+      v.play().catch(function () {});
+      io.unobserve(v);
+    });
+  }, { rootMargin: "300px" });
+  document.querySelectorAll("video[data-src]").forEach(function (v) { io.observe(v); });
+})();
+</script>
 
 <footer class="foot">
   <svg aria-hidden="true"><use href="#mark"/></svg>
