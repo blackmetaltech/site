@@ -26,15 +26,10 @@ a { color: var(--bone); }
 .crest {
   max-width: var(--col); margin: 0 auto; padding: clamp(48px, 7vw, 96px) 20px 0;
 }
-.logo { margin: 0; max-width: 460px; color: var(--bone); line-height: 0; }
+.logo { margin: 0 auto; max-width: 460px; color: var(--bone); line-height: 0; }
 .logo svg { width: 100%; height: auto; aspect-ratio: 1200 / 440; }
-.house { margin: 14px 0 0; font: 600 14px/1.2 var(--body); letter-spacing: .3em; text-transform: uppercase; color: var(--dim); }
-.headline {
-  margin: clamp(28px, 4vw, 48px) 0 0;
-  font: 600 clamp(40px, 5.4vw, 76px)/1.02 var(--display);
-  letter-spacing: .06em; text-transform: uppercase;
-}
-.liner { margin: 12px 0 0; font-size: clamp(18px, 1.4vw, 22px); color: var(--dim); }
+.house { margin: 14px 0 0; font: 600 14px/1.2 var(--body); letter-spacing: .3em; text-indent: .3em; text-transform: uppercase; color: var(--dim); text-align: center; }
+.liner { margin: clamp(28px, 4vw, 48px) 0 0; font-size: clamp(18px, 1.4vw, 22px); color: var(--dim); text-align: center; }
 
 /* ---------- games ---------- */
 main { max-width: var(--col); margin: 0 auto; padding: 0 20px; }

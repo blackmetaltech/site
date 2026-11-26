@@ -20,7 +20,7 @@ The owner wants the site minimal and black. Trust is carried by type, pictures a
 ## The design
 
 - Background `#000`, text `#ece6da`, secondary `#8d8d8d`, hairline rules `#222`. Same two typefaces as before.
-- Header: logo, house name, "Burn the textbook", the liner.
+- Header: logo, house name, the liner. ("Burn the textbook" was removed on 2026-11-26 at the owner's request.)
 - One block per game, in order Gigawatt, Spike, Grid, Equilibrium, Circuits, Loadpath, each separated by a hairline:
   - the name in the display face, left; the tier in small grey capitals, right;
   - one 16:9 picture, the width of the column (about 1000 px);
