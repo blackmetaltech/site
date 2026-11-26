@@ -1,7 +1,7 @@
 // Checks the static site. Run: node --test scripts/check-site.mjs
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync, readdirSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 
@@ -74,7 +74,6 @@ test("description names six games", () => {
 });
 
 test("minimal black", () => {
-  assert.ok(!html.includes("<video"), "no moving pictures");
   assert.doesNotMatch(css, /gradient|glow|box-shadow|text-shadow|animation|@keyframes|url\(/, "no effects, no painted backgrounds");
   for (const m of css.matchAll(/(?:background|color):\s*(#[0-9a-f]{3,8})/gi)) assert.ok(m[1].toLowerCase() !== "#fff" && parseInt(m[1].slice(1, 3), 16) !== 255, `${m[1]} is not a black-page colour`);
   assert.match(css, /--night:\s*#000/);
@@ -89,4 +88,23 @@ test("links name their game", () => {
     const links = [...section(id).matchAll(/<p class="links">([\s\S]*?)<\/p>/g)][0]?.[1] ?? "";
     for (const a of links.matchAll(/<a [^>]*>([\s\S]*?)<\/a>/g)) assert.ok(a[1].includes(name), `${id}: a link does not say which game it opens`);
   }
+});
+
+const MOVING = { spike: true, grid: true, equilibrium: true, circuits: true };
+
+test("four pictures move, and only as quiet looping clips", () => {
+  const ids = [...html.matchAll(/<article class="act [^"]*" id="([^"]+)">[\s\S]*?<\/article>/g)];
+  for (const [, id, act] of ids.map((m) => [m[0], m[1], m[0]])) {
+    assert.equal(act.includes("<video"), !!MOVING[id], `${id} moving picture`);
+    if (!act.includes("<video")) continue;
+    const v = act.match(/<video([^>]*)>/)[1];
+    for (const x of ["muted", "loop", "playsinline", 'preload="none"', "data-src="]) assert.ok(v.includes(x), `${id} clip lacks ${x}`);
+    assert.ok(!/\bautoplay\b/.test(v), `${id} clip must not start by itself`);
+    const poster = v.match(/poster="([^"]+)"/)?.[1];
+    assert.ok(poster && local(poster) && onDisk(poster), `${id} clip needs a poster that exists`);
+    assert.match(act, /<button class="cliptoggle" type="button" aria-pressed="false">/, `${id} clip needs a pause button`);
+    const src = v.match(/data-src="([^"]+)"/)[1];
+    assert.ok(onDisk(src) && statSync(path.join(root, src)).size < 250 * 1024, `${src} is missing or over 250 KB`);
+  }
+  assert.match(html, /prefers-reduced-motion: reduce/, "clips stay still for people who ask for less motion");
 });

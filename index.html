@@ -55,7 +55,10 @@
 
   <article class="act spike tier-stable" id="spike">
     <div class="head"><h2 class="name">Spike</h2><p class="tier">Stable</p></div>
-    <img class="shot" src="assets/shots/spike-lamprey.webp" width="1280" height="720" alt="SPIKE: a neural circuit driving a swimming lamprey, with its spike raster and voltage traces">
+    <div class="pic">
+      <video class="shot" data-src="assets/clips/spike.mp4" muted loop playsinline preload="none" poster="assets/shots/spike-lamprey.webp" width="1280" height="720" aria-label="SPIKE: a neural circuit driving a swimming lamprey, with its spike raster and voltage traces"></video>
+      <button class="cliptoggle" type="button" aria-pressed="false">Pause <span class="sr">the Spike clip</span></button>
+    </div>
     <div class="facts">
       <div>
         <h3>What you learn</h3>
@@ -71,7 +74,10 @@
 
   <article class="act grid tier-beta" id="grid">
     <div class="head"><h2 class="name">Grid</h2><p class="tier">Beta</p></div>
-    <img class="shot" src="assets/shots/grid-blackout.webp" width="1280" height="720" alt="GRID: lightning has taken the island's only feeder; the island goes dark beside the lit harbour">
+    <div class="pic">
+      <video class="shot" data-src="assets/clips/grid.mp4" muted loop playsinline preload="none" poster="assets/shots/grid-blackout.webp" width="1280" height="720" aria-label="GRID: lightning has taken the island's only feeder; the island goes dark beside the lit harbour"></video>
+      <button class="cliptoggle" type="button" aria-pressed="false">Pause <span class="sr">the Grid clip</span></button>
+    </div>
     <div class="facts">
       <div>
         <h3>What you learn</h3>
@@ -87,7 +93,10 @@
 
   <article class="act equilibrium tier-beta" id="equilibrium">
     <div class="head"><h2 class="name">Equilibrium</h2><p class="tier">Beta</p></div>
-    <img class="shot" src="assets/shots/equilibrium-burner-wide.webp" width="1400" height="623" alt="EQUILIBRIUM: a sulfur burner plant in the hall, the burner glowing on its saddles, the pipe rack and the stack behind">
+    <div class="pic">
+      <video class="shot" data-src="assets/clips/equilibrium.mp4" muted loop playsinline preload="none" poster="assets/shots/equilibrium-night.webp" width="1280" height="720" aria-label="EQUILIBRIUM: a sulfur burner plant in the hall, the burner glowing on its saddles, the pipe rack and the stack behind"></video>
+      <button class="cliptoggle" type="button" aria-pressed="false">Pause <span class="sr">the Equilibrium clip</span></button>
+    </div>
     <div class="facts">
       <div>
         <h3>What you learn</h3>
@@ -103,7 +112,10 @@
 
   <article class="act circuits tier-beta" id="circuits">
     <div class="head"><h2 class="name">Circuits</h2><p class="tier">Beta</p></div>
-    <img class="shot" src="assets/shots/circuits-bench.webp" width="1280" height="720" alt="CIRCUITS: a repair ticket on the 3D workbench, a sensor circuit on the breadboard, the supply and the multimeter behind it">
+    <div class="pic">
+      <video class="shot" data-src="assets/clips/circuits.mp4" muted loop playsinline preload="none" poster="assets/shots/circuits-bench.webp" width="1280" height="720" aria-label="CIRCUITS: a repair ticket on the 3D workbench, a sensor circuit on the breadboard, the supply and the multimeter behind it"></video>
+      <button class="cliptoggle" type="button" aria-pressed="false">Pause <span class="sr">the Circuits clip</span></button>
+    </div>
     <div class="facts">
       <div>
         <h3>What you learn</h3>
@@ -136,6 +148,35 @@
     <p><span class="lbl">Still in the forge</span> <span class="what">and more</span></p>
   </section>
 </main>
+
+<script>
+(function () {
+  var videos = document.querySelectorAll("video[data-src]");
+  if (!videos.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var load = function (v) { if (!v.src) { v.src = v.dataset.src; } };
+  var play = function (v) { var p = v.play(); if (p && p.catch) { p.catch(function () {}); } };
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        load(entry.target); play(entry.target); io.unobserve(entry.target);
+      });
+    }, { rootMargin: "300px" });
+    videos.forEach(function (v) { io.observe(v); });
+  } else {
+    videos.forEach(function (v) { load(v); play(v); });
+  }
+  document.querySelectorAll(".cliptoggle").forEach(function (button) {
+    var video = button.parentNode.querySelector("video");
+    button.addEventListener("click", function () {
+      var paused = button.getAttribute("aria-pressed") === "true";
+      if (paused) { play(video); } else { video.pause(); }
+      button.setAttribute("aria-pressed", paused ? "false" : "true");
+      button.firstChild.nodeValue = paused ? "Pause " : "Play ";
+    });
+  });
+})();
+</script>
 
 <footer class="foot">
   <svg aria-hidden="true"><use href="#mark"/></svg>

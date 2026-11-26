@@ -9,7 +9,8 @@ The owner wants the site minimal and black. Trust is carried by type, pictures a
 ## Goals, non-goals, anti-goals
 
 - Goals: pure black page; each game is a name, its tier, one picture, a few facts and its links.
-- Non-goals: animation, glow, fog, gradients, panels over pictures, the painted night and treelines, moving clips.
+- Non-goals: animation, glow, fog, gradients, panels over pictures, the painted night and treelines.
+- Changed 2026-11-26 at the owner's request ("can the game photos be gifs?"): the picture loops as a quiet clip where the game has footage (Spike, Grid, Equilibrium, Circuits); Gigawatt and Loadpath stay still. Each clip has a Pause button and does not play under reduced motion.
 - Anti-goals: anything that reads as heavy; fancy or sarcastic text; "real X" wording.
 
 ## Approaches
