@@ -110,3 +110,16 @@ test("four pictures move, and only as quiet looping clips", () => {
   }
   assert.match(html, /prefers-reduced-motion: reduce/, "clips stay still for people who ask for less motion");
 });
+
+test("each picture opens its game's site in a new tab", () => {
+  for (const id of ORDER) {
+    const act = section(id);
+    const play = act.match(/<p class="links">[\s\S]*?<a class="go" href="([^"]+)"/)?.[1];
+    const pic = act.match(/<a class="toplay"([^>]*)>[\s\S]*?<\/a>/);
+    if (!play) { assert.ok(!pic, `${id}: picture must not link anywhere`); continue; }
+    assert.ok(pic, `${id}: picture does not link to the site`);
+    assert.ok(pic[1].includes(`href="${play}"`), `${id}: picture links to a different place than Play`);
+    assert.ok(pic[1].includes('target="_blank"') && pic[1].includes('rel="noopener"'), `${id}: picture link must open a new tab safely`);
+    assert.match(pic[1], /aria-label="[^"]+ in a new tab"/, `${id}: picture link needs a label`);
+  }
+});
