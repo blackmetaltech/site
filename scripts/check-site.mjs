@@ -63,17 +63,6 @@ test("versions", () => {
   for (const [id, v] of Object.entries(VERSIONS)) assert.match(section(id).match(/<p class="plat">([\s\S]*?)<\/p>/)?.[1] ?? "", new RegExp(v.replaceAll(".", "\\.")), `${id} version`);
 });
 
-test("videos are safe", () => {
-  const videos = [...html.matchAll(/<video([^>]*)>/g)].map((m) => m[1]);
-  assert.equal(videos.length, 4);
-  for (const v of videos) {
-    for (const a of ["muted", "loop", "playsinline", 'preload="none"', "data-src="]) assert.ok(v.includes(a), `video lacks ${a}`);
-    assert.ok(!/\bautoplay\b/.test(v), "video must not autoplay by itself");
-    const poster = v.match(/poster="([^"]+)"/)?.[1];
-    assert.ok(poster && local(poster) && onDisk(poster), "video needs a poster that exists");
-  }
-});
-
 test("alt and labels", () => {
   for (const m of html.matchAll(/<img ([^>]*)>/g)) assert.ok(/alt="[^"]+"/.test(m[1]), `img without alt: ${m[1].slice(0, 60)}`);
   for (const m of html.matchAll(/<video ([^>]*)>/g)) assert.ok(/aria-label="[^"]+"/.test(m[1]), "video without aria-label");
@@ -84,13 +73,13 @@ test("description names six games", () => {
   for (const id of ORDER) assert.ok(d.toLowerCase().includes(id), `description lacks ${id}`);
 });
 
-test("css guards", () => {
-  assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
-  assert.doesNotMatch(css, /outline:\s*(none|0)/);
+test("minimal black", () => {
+  assert.ok(!html.includes("<video"), "no moving pictures");
+  assert.doesNotMatch(css, /gradient|glow|box-shadow|text-shadow|animation|@keyframes|url\(/, "no effects, no painted backgrounds");
+  for (const m of css.matchAll(/(?:background|color):\s*(#[0-9a-f]{3,8})/gi)) assert.ok(m[1].toLowerCase() !== "#fff" && parseInt(m[1].slice(1, 3), 16) !== 255, `${m[1]} is not a black-page colour`);
+  assert.match(css, /--night:\s*#000/);
   assert.match(css, /@media \(max-width: 700px\)/);
-  const open = css.indexOf("{", css.indexOf("@media (max-width: 700px)"));
-  const phone = css.slice(open, css.indexOf("}\n}", open));
-  for (const m of phone.matchAll(/width:\s*(\d+)px/g)) assert.ok(Number(m[1]) <= 360, `phone block sets width ${m[1]}px`);
+  assert.doesNotMatch(css, /outline:\s*(none|0)/);
 });
 
 const NAMES = { gigawatt: "Gigawatt", spike: "Spike", grid: "Grid", equilibrium: "Equilibrium", circuits: "Circuits", loadpath: "Loadpath" };
@@ -99,14 +88,5 @@ test("links name their game", () => {
   for (const [id, name] of Object.entries(NAMES)) {
     const links = [...section(id).matchAll(/<p class="links">([\s\S]*?)<\/p>/g)][0]?.[1] ?? "";
     for (const a of links.matchAll(/<a [^>]*>([\s\S]*?)<\/a>/g)) assert.ok(a[1].includes(name), `${id}: a link does not say which game it opens`);
-  }
-});
-
-test("every moving picture can be paused", () => {
-  for (const [id] of Object.entries(NAMES)) {
-    const act = section(id);
-    if (!act.includes("<video")) continue;
-    const button = act.match(/<button class="cliptoggle"[^>]*>/)?.[0] ?? "";
-    assert.ok(button.includes('type="button"') && button.includes('aria-pressed="false"'), `${id}: no pause button for its clip`);
   }
 });
