@@ -23,7 +23,8 @@ test("assets resolve", () => {
   const refs = [
     ...[...html.matchAll(/(?:src|href|poster)="([^"]+)"/g)].map((m) => m[1]),
     ...[...html.matchAll(/content="(https:\/\/blackmetal\.tech\/assets\/[^"]+)"/g)].map((m) => m[1].replace("https://blackmetal.tech/", "")),
-    ...[...html.matchAll(/url\(["']?([^"')]+)["']?\)/g)].map((m) => m[1]),
+    ...[...css.matchAll(/url\(["']?([^"')]+)["']?\)/g)].map((m) => m[1]),
+    ...[...readFileSync(path.join(root, "404.html"), "utf8").matchAll(/(?:src|href|poster)="([^"]+)"/g)].map((m) => m[1]),
   ].filter(local);
   const missing = [...new Set(refs)].filter((r) => !onDisk(r));
   assert.deepEqual(missing, [], `missing files: ${missing.join(", ")}`);
@@ -53,7 +54,7 @@ test("tiers", () => {
 });
 
 test("loadpath has no way in; the others do", () => {
-  const words = (id) => [...section(id).matchAll(/<a [^>]*>([^<]+)<\/a>/g)].map((m) => m[1].trim());
+  const words = (id) => [...section(id).matchAll(/<a [^>]*>([\s\S]*?)<\/a>/g)].map((m) => m[1].replace(/<[^>]+>/g, "").trim().split(/\s+/)[0]);
   assert.ok(!words("loadpath").some((w) => /^(Play|Download)$/.test(w)));
   for (const id of ORDER.filter((i) => i !== "loadpath")) assert.ok(words(id).includes("Play") && words(id).includes("Download"), `${id} links: ${words(id)}`);
 });
@@ -90,4 +91,22 @@ test("css guards", () => {
   const open = css.indexOf("{", css.indexOf("@media (max-width: 700px)"));
   const phone = css.slice(open, css.indexOf("}\n}", open));
   for (const m of phone.matchAll(/width:\s*(\d+)px/g)) assert.ok(Number(m[1]) <= 360, `phone block sets width ${m[1]}px`);
+});
+
+const NAMES = { gigawatt: "Gigawatt", spike: "Spike", grid: "Grid", equilibrium: "Equilibrium", circuits: "Circuits", loadpath: "Loadpath" };
+
+test("links name their game", () => {
+  for (const [id, name] of Object.entries(NAMES)) {
+    const links = [...section(id).matchAll(/<p class="links">([\s\S]*?)<\/p>/g)][0]?.[1] ?? "";
+    for (const a of links.matchAll(/<a [^>]*>([\s\S]*?)<\/a>/g)) assert.ok(a[1].includes(name), `${id}: a link does not say which game it opens`);
+  }
+});
+
+test("every moving picture can be paused", () => {
+  for (const [id] of Object.entries(NAMES)) {
+    const act = section(id);
+    if (!act.includes("<video")) continue;
+    const button = act.match(/<button class="cliptoggle"[^>]*>/)?.[0] ?? "";
+    assert.ok(button.includes('type="button"') && button.includes('aria-pressed="false"'), `${id}: no pause button for its clip`);
+  }
 });

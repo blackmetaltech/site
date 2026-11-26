@@ -107,7 +107,8 @@ main { position: relative; }
   font-weight: 700; font-size: 13px; letter-spacing: .38em; text-indent: .38em; text-transform: uppercase; color: var(--tier);
   text-shadow: 0 1px 3px #000;
 }
-.tier::before, .tier::after { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .6; }
+.tier::after { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .6; }
+.tier::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 12px currentColor; }
 .name {
   margin: 0; text-align: center;
   font: 600 clamp(46px, 6vw, 104px)/1 var(--display);
@@ -145,6 +146,13 @@ main { position: relative; }
   position: relative; z-index: 1; max-width: 1280px; margin: 26px auto 0; padding: 0 clamp(16px, 3vw, 40px);
   display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
 }
+.cliptoggle {
+  position: absolute; right: clamp(20px, 5vw, 70px); bottom: clamp(28px, 6vh, 60px);
+  min-height: 44px; padding: 0 14px; cursor: pointer;
+  font: 700 13px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--bone);
+  background: rgba(3, 6, 11, .72); border: 1px solid rgba(var(--glow), .7); border-radius: 3px;
+}
+.cliptoggle:hover { background: rgba(236, 230, 218, .14); }
 .more a, .more img { display: block; width: 100%; }
 .more img { aspect-ratio: 16 / 9; object-fit: cover; object-position: top; box-shadow: 0 0 30px rgba(var(--glow), .18), 0 10px 30px rgba(0, 0, 0, .6); border-radius: 2px; }
 .more > :only-child { grid-column: 1 / -1; }
@@ -211,7 +219,8 @@ body::before {                        /* faint snow in the dark between acts */
   .over { padding-top: 16px; }
   .name { font-size: clamp(34px, 10.5vw, 48px); letter-spacing: .1em; padding-left: .1em; }
   .tier { font-size: 11px; letter-spacing: .3em; text-indent: .3em; margin-bottom: 4px; }
-  .tier::before, .tier::after { width: 18px; }
+  .tier::after { width: 18px; }
+  .cliptoggle { right: 16px; top: 252px; bottom: auto; }
   .pitch { font-size: 18px; }
   .panel {
     position: relative; left: auto; bottom: auto; width: auto;
@@ -235,4 +244,5 @@ body::before {                        /* faint snow in the dark between acts */
   html { scroll-behavior: auto; }
   .mist, .lowland::after, .treeline::after, .act::before { animation: none; }
   .links a.go { transition: none; }
+  .cliptoggle { display: none; }
 }
