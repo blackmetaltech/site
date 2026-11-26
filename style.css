@@ -17,7 +17,7 @@ body {
   color: var(--bone);
   font: 400 18px/1.55 var(--body);
 }
-img { display: block; max-width: 100%; height: auto; }
+img, video { display: block; max-width: 100%; height: auto; }
 a { color: var(--bone); }
 :focus-visible { outline: 2px solid var(--bone); outline-offset: 4px; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -47,7 +47,7 @@ main { max-width: var(--col); margin: 0 auto; padding: 0 20px; }
 }
 .tier { margin: 0; font: 600 13px/1 var(--body); letter-spacing: .3em; text-transform: uppercase; color: var(--dim); white-space: nowrap; }
 .pic { position: relative; }
-.shot { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.shot { display: block; width: 100%; }   /* every picture whole, at its own proportions */
 .cliptoggle {
   position: absolute; top: 10px; right: 10px; min-height: 32px; padding: 0 10px; cursor: pointer;
   font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--bone);

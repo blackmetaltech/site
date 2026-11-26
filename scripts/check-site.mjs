@@ -77,6 +77,8 @@ test("minimal black", () => {
   assert.doesNotMatch(css, /gradient|glow|box-shadow|text-shadow|animation|@keyframes|url\(/, "no effects, no painted backgrounds");
   for (const m of css.matchAll(/(?:background|color):\s*(#[0-9a-f]{3,8})/gi)) assert.ok(m[1].toLowerCase() !== "#fff" && parseInt(m[1].slice(1, 3), 16) !== 255, `${m[1]} is not a black-page colour`);
   assert.match(css, /--night:\s*#000/);
+  assert.doesNotMatch(css, /object-fit:\s*cover/, "pictures are shown whole, never cut");
+  assert.match(css, /img, video \{[^}]*height: auto/, "pictures keep their own proportions");
   assert.match(css, /@media \(max-width: 700px\)/);
   assert.doesNotMatch(css, /outline:\s*(none|0)/);
 });
